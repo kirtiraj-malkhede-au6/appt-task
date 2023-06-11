@@ -12,9 +12,10 @@ import IconButton from '../../Bottons/IconButton/IconButton';
 import BookmarkIcon from '../../../assets/icons/BookmarkIcon';
 import PostAction from './PostAction';
 
-const postImage =
-  'https://fastly.picsum.photos/id/9/5000/3269.jpg?hmac=cZKbaLeduq7rNB8X-bigYO8bvPIWtT-mh8GRXtU3vPc';
-const PostCard = () => {
+// const postImage =
+//   // 'https://fastly.picsum.photos/id/9/5000/3269.jpg?hmac=cZKbaLeduq7rNB8X-bigYO8bvPIWtT-mh8GRXtU3vPc';
+//   'https://www.pandasecurity.com/en/mediacenter/src/uploads/2013/11/pandasecurity-facebook-photo-privacy.jpg';
+const PostCard = ({name, username, profileImage, postImage}) => {
   return (
     <FlexView
       justifyContent={'flex-start'}
@@ -29,17 +30,17 @@ const PostCard = () => {
           borderWidth={1}
           padding={1}
           borderColor={'white'}
-          imageUrl={postImage}
+          imageUrl={profileImage}
         />
         <FlexView
           style={{marginLeft: 10}}
           alignItems={'flex-start'}
           justifyContent={'center'}>
           <Typography size={16} fontWeight={'500'}>
-            Balanchaev
+            {name}
           </Typography>
           <Typography size={13} style={{marginTop: -5}}>
-            @balanchaev20
+            {username}
           </Typography>
         </FlexView>
       </FlexView>
@@ -49,6 +50,7 @@ const PostCard = () => {
           height={270}
           borderRadius={30}
           style={{marginTop: 10}}
+          imageUrl={postImage}
         />
         <PostAction />
       </View>

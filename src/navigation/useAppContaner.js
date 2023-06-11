@@ -9,6 +9,7 @@ import MoreIcon from '../assets/icons/MoreIcon.jsx';
 import ProfileIcon from '../assets/icons/ProfileIcon.jsx';
 import NotificationIcon from '../assets/icons/NotificationIcon.jsx';
 import AddIcon from '../assets/icons/AddIcon.jsx';
+import {Camera} from 'react-native-vision-camera';
 
 export default function useAppContaner() {
   const insets = useSafeAreaInsets();
@@ -38,5 +39,24 @@ export default function useAppContaner() {
     // return <Ionicons color={routeName === selectedTab ? 'black' : 'gray'} />;
   };
 
-  return {insets, navigationBarColorHAndler, _renderIcon};
+  const getCameraPermission = async () => {
+    const cameraPermission = await Camera.requestCameraPermission();
+    return cameraPermission;
+  };
+  const getMicrophonePermission = async () => {
+    const microphonePermission = await Camera.requestMicrophonePermission();
+    return microphonePermission;
+  };
+
+  const addPostHandler = async () => {
+    const result = await getCameraPermission();
+    console.log(result);
+  };
+
+  return {
+    insets,
+    navigationBarColorHAndler,
+    _renderIcon,
+    addPostHandler,
+  };
 }

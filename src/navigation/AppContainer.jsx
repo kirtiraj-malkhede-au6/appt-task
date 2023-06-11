@@ -59,7 +59,7 @@ export const tabBarRef = createRef();
 //------------------Curved Tab Bar Code-------------------//
 
 const CurveTabBar = ({navigation, route}) => {
-  const {_renderIcon} = useAppContaner();
+  const {_renderIcon, addPostHandler} = useAppContaner();
 
   useFocusEffect(() => {
     const routeName = getFocusedRouteNameFromRoute(route);
@@ -79,6 +79,7 @@ const CurveTabBar = ({navigation, route}) => {
       </TouchableOpacity>
     );
   };
+
   return (
     <CurvedBottomBar.Navigator
       ref={tabBarRef}
@@ -93,9 +94,7 @@ const CurveTabBar = ({navigation, route}) => {
       screenOptions={{headerShown: false}}
       renderCircle={({selectedTab, navigate}) => (
         <Animated.View style={styles.btnCircleUp}>
-          <TouchableOpacity
-            style={styles.button}
-            onPress={() => Alert.alert('Click Action')}>
+          <TouchableOpacity style={styles.button} onPress={addPostHandler}>
             <AddIcon />
           </TouchableOpacity>
         </Animated.View>

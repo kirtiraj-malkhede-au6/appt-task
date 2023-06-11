@@ -6,28 +6,15 @@
  */
 
 import React from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
-import AppContainer from './src/navigation/AppContainer';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
+import AppContainer from './src/navigation/AppContainer';
 
 function App() {
   return (
-    <SafeAreaProvider style={{backgroundColor: 'pink'}}>
+    <SafeAreaProvider style={{backgroundColor: '#fff'}}>
       <AppContainer />
     </SafeAreaProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  main: {flex: 1, backgroundColor: 'white'},
-});
 
 export default App;
