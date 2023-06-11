@@ -20,10 +20,8 @@ import {SafeAreaProvider} from 'react-native-safe-area-context';
 
 function App() {
   return (
-    <SafeAreaProvider>
-      <SafeAreaView style={{flex: 1, backgroundColor: 'red'}}>
-        <AppContainer />
-      </SafeAreaView>
+    <SafeAreaProvider style={{backgroundColor: 'pink'}}>
+      <AppContainer />
     </SafeAreaProvider>
   );
 }

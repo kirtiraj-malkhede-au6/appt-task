@@ -38,9 +38,9 @@ export default function AppContainer() {
 
   return (
     <NavigationContainer ref={navigationRef}>
-      <View style={{height: insets.top, backgroundColor: '#fff'}}>
+      {/* <View style={{height: insets.top, backgroundColor: '#fff'}}>
         <StatusBar barStyle="dark-content" />
-      </View>
+      </View> */}
       <Stack.Navigator initialRouteName={'Tabs'}>
         <Stack.Screen
           name="Tabs"
