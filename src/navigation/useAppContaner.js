@@ -39,24 +39,9 @@ export default function useAppContaner() {
     // return <Ionicons color={routeName === selectedTab ? 'black' : 'gray'} />;
   };
 
-  const getCameraPermission = async () => {
-    const cameraPermission = await Camera.requestCameraPermission();
-    return cameraPermission;
-  };
-  const getMicrophonePermission = async () => {
-    const microphonePermission = await Camera.requestMicrophonePermission();
-    return microphonePermission;
-  };
-
-  const addPostHandler = async () => {
-    const result = await getCameraPermission();
-    console.log(result);
-  };
-
   return {
     insets,
     navigationBarColorHAndler,
     _renderIcon,
-    addPostHandler,
   };
 }

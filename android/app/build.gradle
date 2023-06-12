@@ -150,6 +150,14 @@ android {
 
 dependencies {
     // The version of react-native is set by the React Native Gradle Plugin
+    // required for react-native-vision-camera from line 153-159 
+    implementation "androidx.camera:camera-core:1.1.0"
+    implementation "androidx.camera:camera-camera2:1.1.0"
+    implementation "androidx.camera:camera-lifecycle:1.1.0"
+    implementation "androidx.camera:camera-video:1.1.0"
+    implementation "androidx.camera:camera-view:1.1.0" 
+    implementation "androidx.camera:camera-extensions:1.1.0"
+    
     implementation("com.facebook.react:react-android")
 
     implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.0.0")
@@ -166,5 +174,5 @@ dependencies {
         implementation jscFlavor
     }
 }
-
+apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"
 apply from: file("../../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesAppBuildGradle(project)

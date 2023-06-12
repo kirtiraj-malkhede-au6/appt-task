@@ -7,7 +7,7 @@ export default function NotificationScreen() {
   return (
     <View>
       <View style={{height: insets.top, backgroundColor: '#fff'}}>
-        <StatusBar barStyle="dark-content" />
+        <StatusBar backgroundColor="#fff" barStyle="dark-content" />
       </View>
       <Text>NotificationScreen</Text>
     </View>

@@ -28,15 +28,18 @@ export default function ProfileScreen({navigation}) {
   };
 
   return (
-    <>
+    <View style={{flex: 1}}>
+      {/* <View style={{height: -insets.top, backgroundColor: '#fff'}}>
+        <StatusBar backgroundColor="#fff" barStyle="dark-content" />
+      </View> */}
       <ImageBackground
-        style={{height: 230, width: '100%'}}
+        style={{height: 200, width: '100%'}}
         source={require('../../assets/profileAssets/profileCover.jpg')}>
         <FlexView
           direction={'row'}
           justifyContent={'space-between'}
           style={{
-            paddingTop: insets.top,
+            marginTop: 10,
             paddingHorizontal: 15,
           }}>
           <IconButton onPress={handleBack}>
@@ -121,9 +124,9 @@ export default function ProfileScreen({navigation}) {
             </Typography>
           </CustomButton>
         </FlexView>
-        <MediaGallery />
+        <MediaGallery style={{flex: 1}} />
       </FlexView>
-    </>
+    </View>
   );
 }
 

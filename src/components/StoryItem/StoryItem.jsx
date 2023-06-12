@@ -11,11 +11,11 @@ const StoryItem = ({imageUrl, index, myStory, name}) => {
       <Avatar
         imageUrl={imageUrl}
         myAvatar={myStory}
-        size={70}
+        size={65}
         borderWidth={2}
         padding={2}
-        borderColor={'blue'}
-        style={{marginLeft: 5, marginRight: 10}}
+        borderColor={'#5790DF'}
+        style={{marginRight: 10}}
       />
       <Typography fontWeight={'500'} color={'#000'} style={{marginVertical: 2}}>
         {name}

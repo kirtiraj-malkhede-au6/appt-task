@@ -5,7 +5,7 @@ import Typography from '../Typography/Typography';
 import Bar from '../Bar/Bar';
 import GalleryTabsButton from '../Bottons/GalleryTabsButton/GalleryTabsButton';
 
-const MediaGallery = () => {
+const MediaGallery = ({style}) => {
   const [selectedtab, setSelectedTab] = useState('all');
 
   const onSelectHandler = type => {
@@ -13,57 +13,66 @@ const MediaGallery = () => {
   };
 
   return (
-    <View style={{width: '100%', alignItems: 'center'}}>
-      <FlexView
-        width={'60%'}
-        direction={'row'}
-        alignItems={'flex-start'}
-        justifyContent={'space-evenly'}>
-        <GalleryTabsButton
-          name={'All'}
-          selected={selectedtab === 'all' ? true : false}
-          onPress={() => onSelectHandler('all')}
-        />
-        <GalleryTabsButton
-          name={'Photos'}
-          selected={selectedtab === 'photos' ? true : false}
-          onPress={() => onSelectHandler('photos')}
-        />
-        <GalleryTabsButton
-          name={'Videos'}
-          selected={selectedtab === 'videos' ? true : false}
-          onPress={() => onSelectHandler('videos')}
-        />
-      </FlexView>
-      <ScrollView contentContainerStyle={styles.gridContainer}>
-        <Image
-          style={styles.image1}
-          source={require('../../assets/profileAssets/gallery1.jpg')}
-        />
-        <View style={styles.gridChild}>
-          <Image
-            style={styles.image2}
-            source={require('../../assets/profileAssets/gallery2.jpg')}
+    <View
+      style={{
+        width: '100%',
+        alignItems: 'center',
+        ...style,
+      }}>
+      <>
+        <FlexView
+          width={'60%'}
+          direction={'row'}
+          alignItems={'flex-start'}
+          justifyContent={'space-evenly'}>
+          <GalleryTabsButton
+            name={'All'}
+            selected={selectedtab === 'all' ? true : false}
+            onPress={() => onSelectHandler('all')}
           />
+          <GalleryTabsButton
+            name={'Photos'}
+            selected={selectedtab === 'photos' ? true : false}
+            onPress={() => onSelectHandler('photos')}
+          />
+          <GalleryTabsButton
+            name={'Videos'}
+            selected={selectedtab === 'videos' ? true : false}
+            onPress={() => onSelectHandler('videos')}
+          />
+        </FlexView>
+        <ScrollView
+          contentContainerStyle={styles.gridContainer}
+          showsVerticalScrollIndicator={false}>
           <Image
-            style={styles.image3}
+            style={styles.image1}
+            source={require('../../assets/profileAssets/gallery1.jpg')}
+          />
+          <View style={styles.gridChild}>
+            <Image
+              style={styles.image2}
+              source={require('../../assets/profileAssets/gallery2.jpg')}
+            />
+            <Image
+              style={styles.image3}
+              source={require('../../assets/profileAssets/gallery3.jpg')}
+            />
+          </View>
+
+          <Image
+            style={styles.image4}
             source={require('../../assets/profileAssets/gallery3.jpg')}
           />
-        </View>
-
-        <Image
-          style={styles.image4}
-          source={require('../../assets/profileAssets/gallery3.jpg')}
-        />
-        <Image
-          style={styles.image5}
-          source={require('../../assets/profileAssets/gallery4.jpg')}
-        />
-        <Image
-          style={styles.image6}
-          source={require('../../assets/profileAssets/gallery5.jpg')}
-        />
-      </ScrollView>
+          <Image
+            style={styles.image5}
+            source={require('../../assets/profileAssets/gallery4.jpg')}
+          />
+          <Image
+            style={styles.image6}
+            source={require('../../assets/profileAssets/gallery5.jpg')}
+          />
+        </ScrollView>
+      </>
     </View>
   );
 };
@@ -71,7 +80,7 @@ const MediaGallery = () => {
 const styles = StyleSheet.create({
   gridContainer: {
     padding: 8,
-    marginTop: 10,
+    marginVertical: 10,
     width: '100%',
     flexDirection: 'row',
     alignItems: 'flex-start',

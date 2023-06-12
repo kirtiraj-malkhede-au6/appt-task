@@ -25,6 +25,8 @@ import {
   getFocusedRouteNameFromRoute,
   useFocusEffect,
 } from '@react-navigation/native';
+import useCamera from '../hooks/cameraHook/useCamera.js';
+import CameraPage from '../screens/camera/CameraPage.jsx';
 
 export default function AppContainer() {
   const Stack = createNativeStackNavigator();
@@ -47,6 +49,11 @@ export default function AppContainer() {
           component={CurveTabBar}
           options={{headerShown: false, gestureEnabled: false}}
         />
+        <Stack.Screen
+          name="CameraPage"
+          component={CameraPage}
+          options={{headerShown: false, gestureEnabled: false}}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -59,8 +66,8 @@ export const tabBarRef = createRef();
 //------------------Curved Tab Bar Code-------------------//
 
 const CurveTabBar = ({navigation, route}) => {
-  const {_renderIcon, addPostHandler} = useAppContaner();
-
+  const {_renderIcon} = useAppContaner();
+  const {addPostHandler} = useCamera();
   useFocusEffect(() => {
     const routeName = getFocusedRouteNameFromRoute(route);
     if (['Tab3'].includes(routeName)) {
@@ -152,8 +159,7 @@ export const styles = StyleSheet.create({
     borderRadius: 30,
     alignItems: 'center',
     justifyContent: 'center',
-    // backgroundColor: 'red',
-    backgroundColor: 'rgba(255, 255, 255, 0.8)',
+    backgroundColor: 'rgba(255, 255, 255, 0.9)',
     bottom: 18,
     shadowColor: '#000',
     shadowOffset: {

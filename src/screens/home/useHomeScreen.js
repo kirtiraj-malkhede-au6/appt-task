@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import {storage} from '../../storage/storage';
 
 const data = [
   {
@@ -141,7 +142,11 @@ const data = [
   },
 ];
 function useHomeScreen() {
-  const [postList, setPostList] = useState(data);
+  const jsonUserPost = storage.getString('userPost');
+  const userObject = jsonUserPost ? JSON.parse(jsonUserPost) : null;
+  const [postList, setPostList] = useState(
+    userObject?.id ? [userObject, ...data] : data,
+  );
 
   return {postList};
 }

@@ -1,5 +1,5 @@
 import {View, Image, Text, StyleSheet} from 'react-native';
-import React from 'react';
+import React, {memo} from 'react';
 import FlexView from '../../FlexView/FlexView';
 import Avatar from '../../Avatar/Avatar';
 import Typography from '../../Typography/Typography';
@@ -11,11 +11,16 @@ import ShareIcon from '../../../assets/icons/ShareIcon';
 import IconButton from '../../Bottons/IconButton/IconButton';
 import BookmarkIcon from '../../../assets/icons/BookmarkIcon';
 import PostAction from './PostAction';
+import VideoView from '../../VideoView/VideoView';
 
-// const postImage =
-//   // 'https://fastly.picsum.photos/id/9/5000/3269.jpg?hmac=cZKbaLeduq7rNB8X-bigYO8bvPIWtT-mh8GRXtU3vPc';
-//   'https://www.pandasecurity.com/en/mediacenter/src/uploads/2013/11/pandasecurity-facebook-photo-privacy.jpg';
-const PostCard = ({name, username, profileImage, postImage}) => {
+const PostCard = ({
+  name,
+  username,
+  profileImage,
+  postImage,
+  postType,
+  videoUrl,
+}) => {
   return (
     <FlexView
       justifyContent={'flex-start'}
@@ -45,17 +50,28 @@ const PostCard = ({name, username, profileImage, postImage}) => {
         </FlexView>
       </FlexView>
       <View style={{width: '100%'}}>
-        <ImageView
-          width={'100%'}
-          height={270}
-          borderRadius={30}
-          style={{marginTop: 10}}
-          imageUrl={postImage}
-        />
+        {postType === 'video' ? (
+          <VideoView
+            width={'100%'}
+            height={270}
+            borderRadius={30}
+            style={{marginTop: 10}}
+            videoUrl={videoUrl}
+          />
+        ) : (
+          <ImageView
+            width={'100%'}
+            height={270}
+            borderRadius={30}
+            style={{marginTop: 10}}
+            imageUrl={postImage}
+          />
+        )}
+
         <PostAction />
       </View>
     </FlexView>
   );
 };
 
-export default PostCard;
+export default memo(PostCard);

@@ -7,7 +7,7 @@ export default function MoreScreen() {
   return (
     <View>
       <View style={{height: insets.top, backgroundColor: '#fff'}}>
-        <StatusBar barStyle="dark-content" />
+        <StatusBar backgroundColor="#fff" barStyle="dark-content" />
       </View>
       <Text>MoreScreen</Text>
     </View>

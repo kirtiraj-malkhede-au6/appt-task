@@ -5,6 +5,7 @@ const FlexView = props => {
   const {
     direction = 'column',
     width,
+    height,
     borderRadius = 0,
     paddingVertical = 0,
     paddingHorizontal = 0,
@@ -18,6 +19,7 @@ const FlexView = props => {
       style={{
         borderRadius,
         width,
+        height,
         flexDirection: direction,
         justifyContent: justifyContent,
         alignItems: alignItems,
