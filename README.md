@@ -31,6 +31,7 @@ How to solve - go to path
 How to solve - go to path
 ==> android/app/build.gradles
 --> add below 6 lines in "android/app/build.gradles" inside the "dependencies" script.
+
 implementation "androidx.camera:camera-core:1.1.0"
 implementation "androidx.camera:camera-camera2:1.1.0"
 implementation "androidx.camera:camera-lifecycle:1.1.0"
